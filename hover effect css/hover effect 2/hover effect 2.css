@@ -1,0 +1,101 @@
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --border:rgb(23, 23, 23);
+    --g1: rgb(224, 72, 168);
+    --g2: rgb(229, 159, 61);
+    --g3: rgb(160, 43, 189);
+}
+
+body {
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    justify-content: center;
+    display: flex;
+}
+
+.card {
+    aspect-ratio: 1 / 1.6;
+    border: 0.5vmin solid var(--border);
+    cursor: pointer;
+    position: relative;
+    width: 56vmin;
+}
+
+.card:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+}
+
+.card:hover > .card-content {
+    background-position: -10% 0%;
+}
+
+.card:hover > .card-content > .card-subtitle > .card-subtitle-word {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0ms, transform 200ms cubic-bezier(.90, .06, .15, .90);
+}
+
+.card::before {
+    background: linear-gradient(
+        130deg,
+        transparent 0% 33%,
+        var(--g1) 66%,
+        var(--g2) 83.5%,
+        var(--g3) 100%
+    );
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    transition: background-position 350ms ease;
+    width: 100%;
+    z-index: 1;
+}
+
+.card-content {
+    background: radial-gradient(
+        rgba(255, 255, 255, 0.2) 8%,
+        transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: calc(100% - 10vmin);
+    padding: 5vmin;
+    position: relative;
+    transition: background-position 350ms ease;
+    width: calc(100% - 10vmin);
+    z-index: 2;
+}
+
+.card-title, .card-subtitle {
+    color: white;
+    font-family: "Anek Latin", sans-serif;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.card-subtitle-word {
+    display: inline-block;
+    margin: 0vmin 0.3vmin;
+    opacity: 0;
+    position: relative;
+    transform: translateY(40%);
+    transition: none;
+}
+
+.card-title {
+    font-size: 6vmin;
+}
+
+.card-subtitle {
+    font-size: 3vmin;
+    margin-top: 2vmin;
+}
