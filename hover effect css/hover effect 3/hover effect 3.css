@@ -1,0 +1,91 @@
+body {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    transition: background-color 400ms ease;
+}
+
+body:has(.card-content[data-color="red"]:hover) {
+    background-color: rgb(183, 37, 37);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    border-radius: 2rem;
+    position: absolute;
+}
+
+.img-main {
+    z-index: 3;
+}
+
+@keyframes fade-right {
+    from {
+        scale: 1;
+        translate: 0%;
+        opacity: 1;
+    }
+    to {
+        scale: 0.80;
+        translate: 30%;
+        opacity: 0;
+    }
+}
+
+@keyframes fade-left {
+    from {
+        scale: 1;
+        translate: 0%;
+        opacity: 1;
+    }
+    to {
+        scale: 0.80;
+        translate: -30%;
+        opacity: 0;
+    }
+}
+
+.card-content:hover .img-1 {
+    animation: fade-right 3s linear infinite;
+}
+
+.card-content:hover .img-2 {
+    animation: fade-left 3s linear infinite;
+}
+
+.card-content:hover .img-3 {
+    animation: fade-right 3s linear infinite;
+    animation-delay: 2s;
+}
+
+.card-content:hover .img-4 {
+    animation: fade-left 3s linear infinite;
+    animation-delay: 2s;
+}
+
+.card-content:hover .img-5 {
+    animation: fade-right 3s linear infinite;
+    animation-delay: 1s;
+}
+
+.card-content:hover .img-6 {
+    animation: fade-left 3s linear infinite;
+    animation-delay: 1s;
+}
